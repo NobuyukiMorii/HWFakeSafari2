@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    IBOutlet UITextField *textField;
+}
 @property (weak, nonatomic) IBOutlet UIWebView *myWebView;
 @property (weak, nonatomic) IBOutlet UITextField *myTextField;
 - (IBAction)tapByn:(id)sender;
-
+- (IBAction)textFieldReturn:(id)sender;
 @end
 

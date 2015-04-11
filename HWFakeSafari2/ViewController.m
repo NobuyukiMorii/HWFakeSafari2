@@ -20,6 +20,10 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *memoStr = [defaults stringForKey:@"saveURL"];
     self.myTextField.text = memoStr;
+    //WEBの画面を表示する
+    NSURL *myURL = [NSURL URLWithString:memoStr];
+    NSURLRequest *myURLReq = [NSURLRequest requestWithURL:myURL];
+    [self.myWebView loadRequest:myURLReq];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,4 +41,9 @@
     [defaults setObject:self.myTextField.text forKey:@"saveURL"];
     [defaults synchronize];
 }
+
+- (IBAction)textFieldReturn:(id)sender {
+    [textField resignFirstResponder];
+}
+
 @end
